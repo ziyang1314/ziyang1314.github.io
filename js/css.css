@@ -1,0 +1,22 @@
+.bg1{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bg2{
+    color: white;
+    background: black;
+    opacity: 0.1;
+}
+
+.middle{
+    width: 100vw;
+    height: 500px;
+    background: salmon;
+   display: table-cell;
+   vertical-align: middle; 
+}
+
+.middle>img{
+   display: block;
+   /* margin: auto; */ 
+}
