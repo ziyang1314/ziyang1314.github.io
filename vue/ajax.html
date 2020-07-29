@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax请求</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h3>ajax和axios、fetch的区别</h3>
+    <a href="https://www.jianshu.com/p/8bc48f8fde75">参考部分</a>
+    <h4>自己主要记住的内容；</h4>
+    <ul>
+        <li> 
+            ajax是对原生xhr（xmlhttprequest）封装，jquery ajax是jquery中提供的实现，所以仅使用发请求这一项的话，需要引用整个jquery；
+        </li>
+        <li>
+            axios 是基于promise对于浏览器和nodejs的http；其实际也是对xhr的封装的promise实现；简洁、体积小，支持并发
+        </li>
+        <li>
+          fetch基于ajax 使用promise实现，优点简洁，支持async和await，但是400和500都会被请求成功，有bug；
+        </li>
+    </ul>
+    <h3>axios实际使用</h3>
+    <a href="https://www.cnblogs.com/ShuiNian/p/12307713.html">参考部分</a>
+    <h4>个人需要理解和记住的内容</h4>
+    <ul>
+        <li>安装或引入axios：npm install axio </li>
+        <li>常规使用axios：
+        <pre>
+            post:
+            axios({
+                method: 'post',
+                url: '/user/12345',
+                data: {
+                  firstName: 'Fred',
+                  lastName: 'Flintstone'
+                }
+              });
+              post:
+              axios.post('/user', {
+                firstName: 'Fred',
+                lastName: 'Flintstone'
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            默认是get；
+            也可以
+            axios.get(url,{params:{}})
+            url后也可以直接跟参数，和ajax区别是参数不是data而是params；
+        </pre>
+        </li>
+        <li>封装axios：
+            <h5><a href="https://www.cnblogs.com/ShuiNian/p/12307713.html">参考部分：</a></h5>
+            <pre>
+                var instance = axios.create({
+                    baseURL: 'https://some-domain.com/api/',
+                    timeout: 1000,
+                    headers: {'X-Custom-Header': 'foobar'}
+                  });
+                  
+                  instance.get('helloword.api')
+            </pre>
+
+        </li>
+    </ul>
+</body>
+<script type="text/javascript">
+   console.log(axios,123);
+//    let config = {
+//        url:'',
+//        method:'', //定义具体的配置项
+//    }mnbvc
+//    axios(config);
+//    就好了
+// 例子：
+axios.post("https://element.eleme.cn/versions.json").then((res)=>{
+    console.log(res)
+}).catch()
+
+</script>
+</html>
