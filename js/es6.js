@@ -8,5 +8,14 @@ let functionArray = {
             x--;
         }
         return num;
+    },
+    // 有关数组的操作
+    arryOperation(){
+        let arry = [1,2,3,4,5,6];
+        console.log(arry.push(7));
+        console.log(arry.pop(7));
+        console.log(arry.shift(0));
+        console.log(arry.unshift(0));
     }
 }
+functionArray.arryOperation();
