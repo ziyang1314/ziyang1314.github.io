@@ -72,7 +72,18 @@ let functionArray = {
     var x;
     ({x} = {x: 1}); // 不加（）会报SyntaxError: syntax error
 
+    },
+    unicode(){
+        let strings = 'hello world！'
+        // es5判定字符串中是否含有某个字符;indexOf
+        let result1 = strings.indexOf('o');
+        // es6-includes()-startsWith-endsWith()
+        //第一个参数是检索的字符串，第二个指定从哪里开始进行查询；
+        let result2 = strings.includes('o'); // 整体
+        let result3 = strings.startsWith('o');// 开始
+        let result4 = strings.endsWith('o'); // 查结尾
+        console.log(result1,result2,result3,result4);
     }
 }
 
-functionArray.destructuring();
+functionArray.unicode();
