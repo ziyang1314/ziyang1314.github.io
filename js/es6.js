@@ -55,35 +55,91 @@ let functionArray = {
         // console.log('但是对obj整体内容替换就不可以，', obj);
         let s = 'hello'
         for (var i = 0; i < s.length; i++) {
-            console.log(s[i],i);
+            console.log(s[i], i);
         } // i  为全局的
-        
-        for (let i=0; i<s.length;i++){
-            console.log(s[i],i)
+
+        for (let i = 0; i < s.length; i++) {
+            console.log(s[i], i)
         } // i  为局部的，每一次就像绑定一个新的代码块
-        console.log(i,90909090)
+        console.log(i, 90909090)
     },
 
     // 变量的结构赋值
-    destructuring(){
-    // 结构类型左右同类型
-    // 数组对顺序、对象对键值，符合展开符之类的对象会是剩余的变量，数组是剩余的数组内容
-    // 特殊例子；
-    var x;
-    ({x} = {x: 1}); // 不加（）会报SyntaxError: syntax error
+    destructuring() {
+        // 结构类型左右同类型
+        // 数组对顺序、对象对键值，符合展开符之类的对象会是剩余的变量，数组是剩余的数组内容
+        // 特殊例子；
+        var x;
+        ({
+            x
+        } = {
+            x: 1
+        }); // 不加（）会报SyntaxError: syntax error
 
     },
-    unicode(){
+    unicode() {
         let strings = 'hello world！'
         // es5判定字符串中是否含有某个字符;indexOf
         let result1 = strings.indexOf('o');
         // es6-includes()-startsWith-endsWith()
         //第一个参数是检索的字符串，第二个指定从哪里开始进行查询；
         let result2 = strings.includes('o'); // 整体
-        let result3 = strings.startsWith('o');// 开始
+        let result3 = strings.startsWith('o'); // 开始
         let result4 = strings.endsWith('o'); // 查结尾
-        console.log(result1,result2,result3,result4);
+        console.log(result1, result2, result3, result4);
+    },
+    number() {
+        // 总的思想是逐步取消掉全局的属性，限定在（number.方法）借以模块化的方式去替代；
+        Number.isFinite(); // 检查数字是否有限；
+        Number.isNaN() // 是否是nan；
+        Number.parseInt() // 取整；
+        Number.parseFloat() // 获得数字；
+        Number.isInteger() // 判断一个值是不是整数
+        Number.EPSILON; // 极小常量用于浮点数计算时候的一个数值区间判断；
+        Number.isSafeInteger() // 安全整数；
+        Number.MAX_SAFE_INTEGER // 安全数字的上限
+        Number.MIN_SAFE_INTEGER // 安全数字的下限
+        Math.trunc()//取整
+        Math.sign()//Math.sign方法用来判断一个数到底是正数、负数、还是零。
+        Math.cbrt()//计算立方根
+        Math.hypot()//返回所有参数的平方和的平方根
+    },
+    arr(){
+        let exampleArr = [
+            {test:1},{test:2},{test:3},{test:4}
+        ];
+        let exampleArr2 = [
+            1,2,3,4,5
+        ];
+
+        let arr1 = Array.from(exampleArr,value=>typeof value);
+        console.log('Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）',arr1);
+        let arr2 = Array.of(1,2,3); 
+        console.log('Array.of用于将一组值转化为数组',arr2);
+        let arr3 = exampleArr2.copyWithin(0,3,4);
+        console.log('Array.copyWithin,用于将数组中元素的替换，覆盖，参数1--开始位置，参数2--要截取的数字开始位置，参数3,-要截取的数字结束为止，意思是将参数2到参数3的内容放到参数1的位置上去类似 replace',arr3);
+        let arr4 = exampleArr2.find((n)=>n>=4);
+        let arr5 = exampleArr.findIndex((n)=>n.test>3);
+        console.log('Array.find和findIndex类似，find是找到符合条件的元素，findeIndex是找到在数组中的下标注,返回的都是第一个找到的元素，find找不到返回undefined，findeIndex则是-1',arr4,arr5);
+        let arr6 = exampleArr2.fill(7,1,2);
+        console.log('Array.fill(),给数组填充数据，三个参数，1，填充内容，指定起始位置，结束位置',arr6)
+        let arr7 = exampleArr2.entries(); // 拿到这个数组单项键值对；
+        let arr8 = exampleArr2.values(); // 拿到键值组成的数组；
+        let arr9 = exampleArr2.keys(); // 拿到键值对的key组成的数组；
+        console.log(arr9,arr8,arr7);
+        let arr10 = exampleArr2.includes(4);//判定是否含有这个值，boolean，补足indexof不能判断nan的情况；
+        let arr11 = exampleArr2.some((item)=>{
+            return item > 3
+        })//全部为假才为假
+        let arr12 = exampleArr2.every((item)=>{
+            return item > 3
+        })//全部为真才为真
+    },
+    hanshu(){
+    // 这里是函数
     }
+    
+
 }
 
-functionArray.unicode();
+functionArray.arr();
