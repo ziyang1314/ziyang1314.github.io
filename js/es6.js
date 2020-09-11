@@ -264,7 +264,7 @@ let functionArray = {
 		console.log(new Set(newArr)); // 或者for循环之后set.add(item),同样可以达到先达到相同的结果；
 		// 实现并集交集和差集的方法
 		let a = new Set([1, 2, 3]);
-		let b = new Set([4, 3, 2,5,6,1]);
+		let b = new Set([4, 3, 2, 5, 6, 1]);
 
 		// 并集
 		let union = new Set([...a, ...b]);
@@ -277,8 +277,33 @@ let functionArray = {
 		// 差集
 		let difference = new Set([...b].filter(x => !a.has(x)));
 		console.log(difference);
-		console.log(newArr.map(x=>x*2))
-	}
-}
+		console.log(newArr.map(x => x * 2))
+		console.log(newArr.forEach(x => x * 2));
+		// Set和map是对数组和对象的转换，具有一些方法，能够快速的取值这些；
+	},
+	extend() {
+		function SuperType(name) {
+			this.name = name;
+			this.colors = ["red", "blue", "green"];
+		}
 
-functionArray.setAndMap();
+		SuperType.prototype.sayName = function() {
+			alert(this.name);
+		}
+
+		function SubType(name, age) {
+			SuperType.call(this, name); // 第二次调用 SuperType()
+			this.age = age;
+		}
+
+		SuperType.prototype = new SuperType(); // 第一次调用 SuperType()
+		SubType.prototype.sayAge = function() {
+			console.log(this.age);
+		}
+		new SubType().sayAge();
+	}
+
+}
+			
+
+functionArray.extend();
