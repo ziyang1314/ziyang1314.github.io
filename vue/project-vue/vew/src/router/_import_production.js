@@ -1,0 +1,1 @@
+module.exports = file=>()=>import('@/view/'+file+'.vue'); // 生产版本懒加载；

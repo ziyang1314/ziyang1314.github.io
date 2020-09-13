@@ -1,7 +1,8 @@
 // 全局性内容的配置；
 
 import Vue from 'vue';
-
+import router from './router/index'; // 引入路由；
+import './router/Permission';// 引入路由守卫
 // 1.样式重置 normalize 比 reset 要更好一些；安装其需要对应安装css-loader和style-loader；
 
 import 'normalize.css';
@@ -19,5 +20,6 @@ Vue.config.productionTip = false   // 阻止启动生产消息
 Vue.use(ElementUI, {size:'small', zIndex: 3000});
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
