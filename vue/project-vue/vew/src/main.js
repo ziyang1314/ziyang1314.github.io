@@ -11,8 +11,13 @@ import 'normalize.css';
 // 引入element-ui ----
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// 引入另外一个ui库
+
+
 
 import App from './App.vue';
+// 另外一个ui库
+import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false   // 阻止启动生产消息
 
 // 全部使用,并且全局配置有关element-ui组件的设置内容；elementui中拥有 size 属性的组件的默认尺寸均为 'small'，弹框的初始 z-index 为 3000。
@@ -21,5 +26,6 @@ Vue.use(ElementUI, {size:'small', zIndex: 3000});
 
 new Vue({
   router,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')

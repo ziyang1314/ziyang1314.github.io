@@ -1,6 +1,6 @@
 module.exports = {
 	plugins: {
-		autoprefixer: {}, // 用来给不同的浏览器自动添加相应前缀，如-webkit-，-moz-等等
+		autoprefixer: {}, // 用来给不同的浏览器自动添加相应前缀，如-webkit-，-moz-等等121
 		"postcss-px-to-viewport": {
 			unitToConvert: "px", // 要转化的单位
 			viewportWidth: 750, // UI设计稿的宽度
