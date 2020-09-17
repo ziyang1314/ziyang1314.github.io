@@ -4,15 +4,18 @@
 			<img src="../../assets/index.jpg" alt="" srcset="">
 		</div>
 		<div v-else>
-			用户正式登陆界面
+			<hello-world></hello-world>
 		</div>
 	</div>
 </template>
 
 <script>
+	import HelloWorld from '@/components/HelloWorld'
 	export default {
 		//import引入的组件需要注入到对象中才能使用
-		components: {},
+		components: {
+			HelloWorld
+		},
 		data() {
 			//这里存放数据
 			return {
@@ -20,6 +23,12 @@
 				time: true,
 			};
 		},
+		created() {
+			setTimeout(() => {
+				this.time = false;
+			}, 3000)
+		},
+
 		beforeRouteEnter: (to, from, next) => {
 			console.log("组件内路由守卫", "进入");
 			console.log(to, from);
@@ -35,7 +44,8 @@
 	.box {
 		width: 100vw;
 		height: 100vh;
-		img{
+
+		img {
 			width: 100vw;
 			height: 100vh;
 		}

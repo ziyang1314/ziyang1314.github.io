@@ -17,6 +17,7 @@
 					4.在构造函数中，this指向新创建的对象；
 					5.箭头函数this指向其上下文中的this
 					<img src="../js/image/19391290-5e2b904142b8afd6.png" >
+					<img src="../js/image/v2-1a2dca7366abc7b8d46b1082a406529a_r.jpg" >
 				</p>
 				<p>
 					原型和原型链:
@@ -36,17 +37,21 @@
 					<a href="https://www.jianshu.com/p/db7c4e9a80a3">寄生继承和寄生组合式继承</a>
 				</p>
 				<p>
+					<a href="https://zhuanlan.zhihu.com/p/57336944">extends做了什么？</a>
 					extends关键字用来创建一个普通类或者内建对象的子类。
 					
 					继承的.prototype必须是一个Object 或者 null。
 				</p>
 				<p>
-					new 关键字会进行如下的操作：
+					<a href="https://zhuanlan.zhihu.com/p/50719681">new做了什么？</a>
+					.new做了什么：
 					
-					创建一个空的简单JavaScript对象（即{}）；
-					链接该对象（设置该对象的constructor）到另一个对象 ；
-					将步骤1新创建的对象作为this的上下文 ；
-					如果该函数没有返回对象，则返回this。
+					创建了一个全新的对象。
+					这个对象会被执行[[Prototype]]（也就是__proto__）链接。
+					生成的新对象会绑定到函数调用的this。
+					通过new创建的每个对象将最终被[[Prototype]]链接到这个函数的prototype对象上。
+					如果函数没有返回对象类型Object(包含Functoin, Array, Date, RegExg, Error)，那么new表达式中的函数调用会自动返回这个新的对象。
+				 
 				</p>
 			</li>
 		     <li>

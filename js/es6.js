@@ -301,9 +301,150 @@ let functionArray = {
 			console.log(this.age);
 		}
 		new SubType().sayAge();
+	},
+	proxyAndReflex() {
+		// Proxy 可以通过注入针对对定义对象的各种方法的拦截，从而控制对对象的设置，reflect是对object一些明显属于内部属性的方法的修正，
+		// object和reflect 将会并存，只是以后，新增的属性可能会添加到reflect上，并且修正了object设置一个值错误时的返结果，为false而不是报错；
+		// proxy和reflect的搭配使用保证了，即能干预对象的属性设置方法调用，同时又能保证object原生行为能够正常的执行;
+		var loggedObj = new Proxy(obj, {
+			get(target, name) {
+				console.log('get', target, name);
+				return Reflect.get(target, name);
+			},
+			deleteProperty(target, name) {
+				console.log('delete' + name);
+				return Reflect.deleteProperty(target, name);
+			},
+			has(target, name) {
+				console.log('has' + name);
+				return Reflect.has(target, name);
+			}
+		});
+	},
+	observable() {
+		let dingyuezhe = new Set(); //得到一个不重复的数组；作为订阅某个对象的订阅者；
+		let adddingyuezhe = (fn) => dingyuezhe.add(fn); // 对订阅者都是一个个回调函数，当订阅对象的值发生变化的时候，我们定义的监视订阅对象属性变化的方法就会生效
+		// 然后在这个监视的事件中，我们把数组中的订阅者遍历一遍，挨个儿通知一下；监视时通过proxy实现的；
+		let addevent = (obj) => new Proxy(obj, {
+			set
+		}) // obj 即为大家订阅的对象，他有风吹草动，set方法就会监听到；然后向订阅者发出通知；
+		function set(target, key, value, receiver) {
+			let result = Reflect.set(target, key, value, receiver); // Reflect 是对object的修补。这里是保证对象的属性或者方法的原生行为能够正常的进行；
+			// 在返回设置结果前，告诉订阅者们数据更新了；这个时候执行订阅者函数就可以了
+			dingyuezhe.forEach((fn) => fn()); // 这样这些订阅者就得到了结果；
+			return result;
+		};
+		// 发布订阅的应用场景；
+		// 例如：对某个商品打折时间的订阅，时间到了，打折开始界面要发生一些变化变更一些展示数据，出发函数在首页展示打折开始了，或者调用接口实现告知商品的用户，有打折活动了这些；
+	},
+	// 可以想象 监听用户输入 oninput = function(){} 那么执行debounce就需要给其返回一个待执行函数；
+	debounce(func, waitTime) {
+		// 函数防抖，和函数节流
+		// 监听输入搜索，希望用户输入停止之后，再发起请求；---防抖  触发方法的操作停止再执行调用处理函数
+
+		//防抖 func ,要执行的函数，waitTime 多长时间后才可以执行；
+		let timeOut;
+		return function() {
+			let context = this; // 保存this备用；
+			let args = arguments; // 保存参数备用；
+
+			if (timeOut) clearTimeout(timeOut); // 在调用函数的过程中发现timeOut存在，说明已经有一个周期在走了，这个时候，清楚掉重新走流程
+
+			timeOut = setTimeout(function() {
+				func.apply(context, args); // context 即为调用debounce的this，保证了在js封装之后，this是所在js文件的上下文中的this；
+			}, waitTime);
+		}
+	},
+	jieliu(func, waitTime) {
+		// 监听用户滚动，希望每过一秒或者100毫秒触发一次；---节流  触发方法的操作每过多长时间让它触发一次
+		// 时间戳版本；
+		// 	let previous = 0; //定义起始点
+		// 	return function() {
+		// 		let context = this;
+		// 		let now = Date.now(); // 获得时间戳
+		// 		let args = arguments;
+		// 		if (now - previous > waitTime) {
+		// 			func.apply(content, args)
+		// 			previous = now;
+		// 		}
+		// 	}
+
+		// }
+
+		// 定时器版本；
+
+		let door = true; // 开始可执行；
+		return function() {
+			if (door) {
+				door = false; //进入判断条件后就改变状态，避免下次触发还能够进入
+				settimeout(() => {
+					func.call(this, Arguments);
+					door = true; // 当本次执行完毕之后，
+				}, waitTime)
+
+			}
+		}
+
+	},
+	sort() {
+		let arr = [10, 20, 25, 45, 30, 10, 17, 21];
+		console.log(arr)
+		for (let i = 1; i < arr.length; i++) {
+			console.log(i)
+			for (let j = 0; j < arr.length - i; j++) {
+				if (arr[j] > arr[j + 1]) { // 取数组中的数据从第一个和第二个作对比，第二个比第一个小，就交换位置；这样交换到最后，最后一位就是最大的；
+					let max = arr[j]; //这样子的对比做数组的长度次，就得到了升序排列
+					arr[j] = arr[j + 1];
+					arr[j + 1] = max;
+				}
+			}
+		}
+		console.log(arr)
+		// for 循环是阻塞加载； 
+		let currenttime = new Date().getTime();
+		for (let i = 0; i < 100000000; i++) {
+
+		}
+		console.log(`循环一亿次产生的阻塞时间差为:${new Date().getTime() - currenttime}毫秒`);
+		return arr;
+
+	},
+	aboutEval() {
+		var foo = 'global.foo';
+		var obj = {
+			foo: 'obj.foo',
+			method: function() {
+				return this.foo;
+			}
+		};
+
+		console.log(obj.method()); // 直接调用的结果是返回一个引用
+		console.log((1, obj.method)()); // 类eval的间接调用，见解调用的结果是返回一个值，getvalue
+
+	},
+	newOperator(ctor) {
+		// 实现一个new操作符：主要做了两件事情，实现或者继承了要new的对象的属性和方法；
+		// 并且将this绑定到new好的对象向上
+		// 若需要new的对象不是一个构造函数；那么就会抛出错误；
+		if (typeof ctor !== 'function') {
+			throw 'newOperator function the first param must be a function';
+		}
+		// new.target 指向构造函数
+		newOperator.target = ctor; // 不明白
+		// 从要new的对象的原型上继承属性和方法；
+		var newObj = Object.create(ctor.prototype);
+		// 除去ctor构造函数的其余参数
+		var argsArr = [].slice.call(arguments, 1);
+		// 绑定this，生成的新对象会绑定到函数调用的`this`
+		var ctorReturnResult = ctor.apply(newObj, argsArr);
+		
+		var isObject = typeof ctorReturnResult === 'object' && ctorReturnResult !== null;
+		var isFunction = typeof ctorReturnResult === 'function';
+		if (isObject || isFunction) {
+			return ctorReturnResult;
+		}
+		return newObj;
 	}
-
 }
-			
 
-functionArray.extend();
+functionArray.sort();

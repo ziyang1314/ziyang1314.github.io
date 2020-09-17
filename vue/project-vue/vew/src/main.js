@@ -10,8 +10,7 @@ import 'normalize.css';
 
 // 引入element-ui ----
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-// 引入另外一个ui库
+import 'element-ui/lib/theme-chalk/index.css'; 
 
 
 

@@ -12,7 +12,9 @@
 物理像素：物理像素是屏幕自身的特性，是一个不可分割的像素点；
 
 css像素：css像素是一个抽象，理解为一个图片像素在设备上需要几个物理像素来渲染展示；
-
+开发过程终于到的问题：
+1.git add 的时候遇到lf
+解决办法：git config core.autocrlf false
 [选定的移动端适配库](https://github.com/evrone/postcss-px-to-viewport)
 [vue的ui库](https://developer.51cto.com/art/202003/611982.htm)
 [最终选择的ui库](https://vuetifyjs.com/zh-Hans/)
