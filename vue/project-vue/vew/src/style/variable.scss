@@ -1,0 +1,15 @@
+
+// 解决1px问题;
+.scale{
+    position: relative;
+	&:after{
+    content:"";
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    border-bottom:1px solid #ddd;
+    -webkit-transform:scaleY(.5);
+    -webkit-transform-origin:0 0;
+}
+ 

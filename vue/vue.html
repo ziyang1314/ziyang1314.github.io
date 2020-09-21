@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>知识点总结</title>
 </head>
-
 <body>
     <ul>
         <li>
@@ -19,9 +17,7 @@
         </li>
         <li>
             <h3>js使用require和import引入以来的区别？</h3>
-            <p onclick="goDetail('exportAndImport')">在html的javascript标签内部是不能直接通过import或者require这种方式引入外部js的，require --
-                modules.exports ,import -- export 、export default export和export default作用类似，不同点是在一个js文件中，export
-                default只能有一个，且导入对应的不需要加花括号，而export 需要</p>
+            <p onclick="goDetail('exportAndImport')">在html的javascript标签内部是不能直接通过import或者require这种方式引入外部js的，require -- modules.exports ,import -- export 、export default export和export default作用类似，不同点是在一个js文件中，export default只能有一个，且导入对应的不需要加花括号，而export 需要</p>
         </li>
         <li>
             <h3>有关axios和ajax的区别和使用须知？</h3>
@@ -35,19 +31,24 @@
                 webpack
             </p>
         </li>
-        <li>
-            <h3>vue的响应式原理？</h3>
-            <p onclick="goDetail('vueModel')">
-                vue
-            </p>
-        </li>
+		<li>
+		    <h3>vue的响应式原理？</h3>
+		    <p onclick="goDetail('vueModel')">
+		        <a href="https://cn.vuejs.org/v2/guide/reactivity.html"></a>
+		    </p>
+		</li>
+		<li>
+			<h3>this,原型和原型链，作用域和作用域链？</h3>
+			<p onclick="goDetail('InterviewQuestions')">
+			    <a href="https://www.jianshu.com/p/971e9b810aee"></a>
+			</p>
+		</li>
     </ul>
 </body>
 <script type="text/javascript">
-    function goDetail(params) {
-        console.log()
-        location.href = (`./${params}.html`);
-    }
+   function goDetail(params){
+       console.log()
+      location.href = (`./${params}.html`);
+   }
 </script>
-
 </html>
