@@ -7,7 +7,7 @@
 
 		<v-navigation-drawer v-model="drawer" app>
 			<v-list dense>
-				<v-list-item @click.stop="left = !left">
+				<v-list-item @click.stop="navigate('scss')">
 					<v-list-item-action>
 						<v-icon>mdi-exit-to-app</v-icon>
 					</v-list-item-action>
@@ -50,7 +50,7 @@
 				</v-row>
 			</v-container>
 		</v-main>
- 
+
 	</v-app>
 </template>
 
@@ -65,5 +65,12 @@
 			right: false,
 			left: false,
 		}),
+		methods: {
+			navigate( ) { 
+				this.$router.push({
+					name: 'scss', 
+				})
+			}
+		}
 	}
 </script>

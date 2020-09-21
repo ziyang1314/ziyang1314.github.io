@@ -4,7 +4,7 @@
 			<img src="../../assets/index.jpg" alt="" srcset="">
 		</div>
 		<div v-else>
-			<hello-world></hello-world>
+			<hello-world  ></hello-world>
 		</div>
 	</div>
 </template>
@@ -27,17 +27,17 @@
 			setTimeout(() => {
 				this.time = false;
 			}, 3000)
-		},
-
-		beforeRouteEnter: (to, from, next) => {
-			console.log("组件内路由守卫", "进入");
-			console.log(to, from);
-			next();
-		},
-		beforeRouteLeave: (to, from) => {
-			console.log("组件内路由守卫", "离开");
-			console.log(to, from);
-		},
+			localStorage.setItem('token123','3456789')
+		}, 
+		// beforeRouteEnter: (to, from, next) => {
+		// 	console.log("组件内路由守卫", "进入");
+		// 	console.log(to, from);
+		// 	next();
+		// },
+		// beforeRouteLeave: (to, from) => {
+		// 	console.log("组件内路由守卫", "离开");
+		// 	console.log(to, from);
+		// },
 	};
 </script>
 <style lang="scss" scoped>

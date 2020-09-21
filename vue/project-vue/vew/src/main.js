@@ -5,6 +5,7 @@ import Vue from 'vue';
 import router from './router/index'; // 引入路由；
 import './router/Permission'; // 引入路由守卫
 
+import store from './store/index.js';
 // 1.样式重置 normalize 比 reset 要更好一些；安装其需要对应安装css-loader和style-loader；
 import 'normalize.css';
 
@@ -13,7 +14,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import '@/style/index.scss'; // 引入项目全局样式；
-
+import theme from './utils/Theme.js';
 import App from './App.vue';
 // 另外一个ui库
 import vuetify from './plugins/vuetify';
@@ -29,5 +30,7 @@ Vue.use(ElementUI, {
 new Vue({
 	router,
 	vuetify,
+	store,
+	theme,
 	render: h => h(App)
 }).$mount('#app')
