@@ -1,43 +1,64 @@
-# 创建本地的git仓库；
-
+## 创建本地的git仓库；
+```
 mkdir 文件夹
 
 cd  文件夹
 
 git init
-
+```
 添加你要上添加到本地仓库的代码文件；
-
+```
 git add .  添加全部
-
+```
 或者
+```
+git add  filename 
+```
+添加指定的文件
+ 
+```
+git commit -m 
+```
+'描述这次提交的内容' 形式将代码提交到本地的代码库；
 
-git add  filename 添加指定的文件
+### 版本回退：
+```
+git log 
+```
 
+可以查看commit的提交记录
+```
+git log --pretty=online 
+```
 
-git commit -m '描述这次提交的内容' 形式将代码提交到本地的代码库；
-
-# 版本回退：
-
-git log 可以查看commit的提交记录
-
-git log --pretty=online 可以精简log输出内容
+可以精简log输出内容
 
 SHA1计算 出来的长的数字字母串就是每次提交形成的版本号也叫 commit—id
-
-git reset --hard HEAD^ 可以将commit后的代码回退到上一个版本
+```
+git reset --hard HEAD^ 
+```
+可以将commit后的代码回退到上一个版本
 
 ^^ 可以回退到上上一个版本 但是这样的都不好
+```
+git reset --head  commit—id  
+```
+这样可以回退到指定的版本
+```
+git reflog 
+```
+可以查看log输出，这样就可以避免代码回退之后找不到之前最新的commit—id了
 
-git reset --head  commit—id  这样可以回退到指定的版本
+### 工作区->暂存区->当前的分支；
+```
+git add    
+```
+工作区-->暂存区
+```
+git commit 
+```
 
-git reflog 可以查看log输出，这样就可以避免代码回退之后找不到之前最新的commit—id了
-
-工作区->暂存区->当前的分支；
-
-git add    工作区-->暂存区
-
-git commit 暂存区-->当前分支
+暂存区-->当前分支
 
 git add 之后git commit 也完成之后，工作区和暂存区应该都是干净的；
 
@@ -48,7 +69,7 @@ git add 之后git commit 也完成之后，工作区和暂存区应该都是干�
 可以通过 git diff  HEAD -- filename 来查看工作区和代码库最新代码的区别；
 
 
-# 工作区修改撤销；
+### 工作区修改撤销；
 
 通过命令 git checkout -- filename 来完成
 
@@ -62,7 +83,7 @@ git add 之后git commit 也完成之后，工作区和暂存区应该都是干�
 
   撤销的都是工作区的修改，代码和暂存区保持一致；
 
-# 文件删除操作
+### 文件删除操作
 
 1.直接删除
 
@@ -72,7 +93,7 @@ git add 之后git commit 也完成之后，工作区和暂存区应该都是干�
 
 确定要进行删除的话，就用git rm filename 然后 commit 完成删除仓库中的文件操作
 
-# 关联远程库；
+### 关联远程库；
 
 github创建仓库
 
@@ -90,7 +111,7 @@ git push -u origin master
 
 git clone 仓库地址就可以了
 
-# 分支管理：
+### 分支管理：
 
 创建分支和合并分支；
 
@@ -122,9 +143,9 @@ git switch -c <name>  我的git好像不太支持
 
 你可以升级git 因为switch 是从2.23之后才新加入的命令；
 
-mac升级：https://www.jianshu.com/p/6eca0eadcc22
+mac升级：[https://www.jianshu.com/p/6eca0eadcc22]
 
-# 解决冲突
+### 解决冲突
 
 git merge <name>
 
@@ -160,7 +181,7 @@ git remote  查看远程库的分支
 
 git remote -v 可以查看远程库拉取和推送的地址  如果没有推送（push）权限则只显示一条；
 
-# 推送分支到远程仓库：
+### 推送分支到远程仓库：
 
 git push origin 分支名称 
 
@@ -180,7 +201,7 @@ gitee :
 
 cat ~/.ssh/id_rsa.pub 查看自己的公钥；配置ssh
 
-# 创建gitee仓库；
+### 创建gitee仓库；
 
 如果已经关联了github的远程库；
 
@@ -203,10 +224,10 @@ git push gitee 分支名称
 之后修改内容就可以正常的提交了,在库关联成功之后;
 每次提交需要指定提交的仓库；
 
-# 忽略部分文件；
+### 忽略部分文件；
 在项目开发过程中不希望nodemodules这些文件上传上去可以自己编写.gitignore
 
-#myconfig;
+### myconfig;
 文件夹名称
 * .js 
 db.class 

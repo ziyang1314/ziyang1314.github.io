@@ -437,14 +437,91 @@ let functionArray = {
 		var argsArr = [].slice.call(arguments, 1);
 		// 绑定this，生成的新对象会绑定到函数调用的`this`
 		var ctorReturnResult = ctor.apply(newObj, argsArr);
-		
+
 		var isObject = typeof ctorReturnResult === 'object' && ctorReturnResult !== null;
 		var isFunction = typeof ctorReturnResult === 'function';
 		if (isObject || isFunction) {
 			return ctorReturnResult;
 		}
 		return newObj;
+	},
+	diedai() {
+		// 迭代器函数 
+		class RangIterator {
+
+			constructor(start, stop) {
+					this.value = start;
+					this.stop = stop;
+				}
+				[Symbol.iterator]() {
+					return this;
+				}
+			next() {
+				var value = this.value;
+				if (value < this.stop) {
+					this.value++
+					return {
+						done: false,
+						value: value
+					}
+				} else {
+					return {
+						done: true,
+						value: undefined
+					}
+				}
+			}
+		}
+
+		function rang(start, stop) {
+			return new RangIterator(start, stop);
+		}
+
+		for (var value of rang(0, 3)) {
+			console.log(value);
+		}
+		//对于部署了Symbol.iterator的数据结构， for of 可作为统一的遍历这些数据结构的统一方法；
+		// for of 遍历得到的是键值，for in 得到的是键名
+		let obj = '23457';
+		// [...obj]其实就是内部实现了一个symbol.iterator
+		obj[Symbol.iterator] = function() {
+			return {
+				next: function() {
+					if (this._first) {
+						this._first = false;
+						console.log("借助此属性我们可以修改这些数据的返回值--比较对对象的proxy和reflect")
+						return {
+							value: "bye",
+							done: false
+						};
+					} else {
+						return {
+							done: true
+						};
+					}
+				},
+				_first: true
+			};
+		};
+		console.log(obj);
+		console.log([...obj])
+
+	},
+	generator() {
+		//  generator 是异步编程的一种实现，通过yield 来逐步执行代码；yield 是内部状态指针指向的地方；
+		// 每一次执行需要调用generator.next()
+		function* helloWorldGenerator() {
+			yield 'hello';
+			yield 'world';
+			return 'ending';
+		}
+		let hw = helloWorldGenerator();
+		console.log(hw.next()) // {value:"hello",done:false}
+		console.log(hw.next()) // {value:"world",done:false}
+		console.log(hw.next()) // {value:"ending",done:true}
+		console.log(hw.next()) // {value:"undefined",done:true}
+
 	}
 }
 
-functionArray.sort();
+functionArray.generator();
