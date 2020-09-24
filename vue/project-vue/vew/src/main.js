@@ -16,6 +16,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/style/index.scss'; // 引入项目全局样式；
 import theme from './utils/Theme.js';
 import App from './App.vue';
+
+import Print from 'vue-print-nb'
+Vue.use(Print); //注册
 // 另外一个ui库
 import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false // 阻止启动生产消息

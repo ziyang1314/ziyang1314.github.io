@@ -15,20 +15,20 @@
 						<v-list-item-title>scss学习</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item @click.stop="left = !left">
+				<v-list-item @click.stop="navigate('dataInputOutPut')">
 					<v-list-item-action>
 						<v-icon>mdi-exit-to-app</v-icon>
 					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title>vertify框架学习</v-list-item-title>
+					<v-list-item-content >
+						<v-list-item-title>data-input-output</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item @click.stop="left = !left">
+				<v-list-item @click.stop="navigate('animation')">
 					<v-list-item-action>
 						<v-icon>mdi-exit-to-app</v-icon>
 					</v-list-item-action>
 					<v-list-item-content>
-						<v-list-item-title>postcss-px-to-viewport的使用注意事项</v-list-item-title>
+						<v-list-item-title>animation</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
 			</v-list>
@@ -66,9 +66,9 @@
 			left: false,
 		}),
 		methods: {
-			navigate( ) { 
+			navigate(name) { 
 				this.$router.push({
-					name: 'scss', 
+					name: name, 
 				})
 			}
 		}

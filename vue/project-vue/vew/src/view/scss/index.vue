@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="printTest">
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
@@ -45,9 +45,10 @@
     <div>
       <set-theme-color @change="themeChange"></set-theme-color>
     </div>
-    <div class="test" :style="{color:color}">
+    <div class="test" :style="{ color: color }">
       测试颜色
     </div>
+    <el-button type="primary" v-print="'#printTest'">打印</el-button>
   </div>
 </template>
 
@@ -60,15 +61,15 @@
     },
     data() {
       return {
-		isCollapse: true,
-		variables
+        isCollapse: true,
+        variables,
       };
-	}, 
-	computed:{
-      color(){ 
-         return this.$store.state.settings.theme
-	  }
-	},
+    },
+    computed: {
+      color() {
+        return this.$store.state.settings.theme;
+      },
+    },
     methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
@@ -76,8 +77,8 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       },
-      themeChange(val) { 
-		this.variables.theme = val;
+      themeChange(val) {
+        this.variables.theme = val;
         this.$store.dispatch("changeSetting", {
           key: "theme",
           value: val,

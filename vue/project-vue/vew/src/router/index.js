@@ -7,27 +7,47 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 console.log(process.env.NODE_ENV);
 //1. 引入路由组件，定义路由规则   
 export const constantRouterMap = [{
-	path: '/login',
-	name: 'login',
-	component: _import('login/index'),
-	// beforeEnter: (to, from, next) => {
-	// 	console.log('路由独享的守卫', "进入")
-	// 	console.log(to, from);
-	// 	next();
-	// },
-	// beforeLeave: (to, from) => {
-	// 	console.log('路由独享的守卫', "离开")
-	// 	console.log(to, from);
-	// }
-}, {
-	path: '/scss',
-	name: "scss",
-	component: _import("scss/index"),
-}, {
-	path: '/',
-	name: "index",
-	component: _import("index/index"),
-}]
+		path: '/login',
+		name: 'login',
+		component: _import('login/index'),
+		// beforeEnter: (to, from, next) => {
+		// 	console.log('路由独享的守卫', "进入")
+		// 	console.log(to, from);
+		// 	next();
+		// },
+		// beforeLeave: (to, from) => {
+		// 	console.log('路由独享的守卫', "离开")
+		// 	console.log(to, from);
+		// }
+	}, {
+		path: '/scss',
+		name: "scss",
+		component: _import("scss/index"),
+	}, {
+		path: '/',
+		name: "index",
+		component: _import("index/index"),
+	}, {
+		path: "/dataInputOutPut",
+		name: "dataInputOutPut",
+		component: _import("data-input-out-put/index"),
+	},
+	{
+		path: "/animation",
+		name: "animation",
+		component: _import("animation/index"),
+		redirect:'/animation/nav',
+		children: [{
+			path: "nav",
+			name: "nav",
+			component: _import("animation/nav"),
+		},{
+			path: "water",
+			name: "water",
+			component: _import("animation/water"),
+		}]
+	}
+]
 //2. 创建路由实例
 let router = new Router({
 	mode: 'history',

@@ -520,8 +520,8 @@ let functionArray = {
 		console.log(hw.next()) // {value:"world",done:false}
 		console.log(hw.next()) // {value:"ending",done:true}
 		console.log(hw.next()) // {value:"undefined",done:true}
-
 	}
+	
 }
 
 functionArray.generator();
