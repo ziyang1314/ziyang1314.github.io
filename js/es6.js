@@ -535,6 +535,7 @@ let functionArray = {
 	promise(){
 		
 	}
+	
 }
 
 functionArray.generator();
