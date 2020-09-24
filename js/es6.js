@@ -147,7 +147,7 @@ let functionArray = {
 	},
 	hanshu() {
 		// 这里是函数；参数可以设置默认值，也可以通过结构赋值或者扩展运算符进行展开；
-		let fnArry = function fnArry() {}
+		let fnArry = function fnArry() { }
 		fnArry.prototype.defaultParameters = (y = 10) => {
 			console.log(y);
 		}
@@ -158,7 +158,7 @@ let functionArray = {
 			// 箭头函数
 			setInterval(() => this.s1++, 1000);
 			// 普通函数
-			setInterval(function() {
+			setInterval(function () {
 				console.log(this.s2)
 				this.s2++;
 			}, 1000);
@@ -245,16 +245,16 @@ let functionArray = {
 
 		console.log('1--script start')
 
-		setTimeout(function() {
+		setTimeout(function () {
 			console.log('7--setTimeout')
 		}, 0)
 
 		async1();
 
-		new Promise(function(resolve) {
+		new Promise(function (resolve) {
 			console.log('4--promise1')
 			resolve();
-		}).then(function() {
+		}).then(function () {
 			console.log('6--promise2')
 		})
 	},
@@ -287,7 +287,7 @@ let functionArray = {
 			this.colors = ["red", "blue", "green"];
 		}
 
-		SuperType.prototype.sayName = function() {
+		SuperType.prototype.sayName = function () {
 			alert(this.name);
 		}
 
@@ -297,7 +297,7 @@ let functionArray = {
 		}
 
 		SuperType.prototype = new SuperType(); // 第一次调用 SuperType()
-		SubType.prototype.sayAge = function() {
+		SubType.prototype.sayAge = function () {
 			console.log(this.age);
 		}
 		new SubType().sayAge();
@@ -344,13 +344,13 @@ let functionArray = {
 
 		//防抖 func ,要执行的函数，waitTime 多长时间后才可以执行；
 		let timeOut;
-		return function() {
+		return function () {
 			let context = this; // 保存this备用；
 			let args = arguments; // 保存参数备用；
 
 			if (timeOut) clearTimeout(timeOut); // 在调用函数的过程中发现timeOut存在，说明已经有一个周期在走了，这个时候，清楚掉重新走流程
 
-			timeOut = setTimeout(function() {
+			timeOut = setTimeout(function () {
 				func.apply(context, args); // context 即为调用debounce的this，保证了在js封装之后，this是所在js文件的上下文中的this；
 			}, waitTime);
 		}
@@ -374,7 +374,7 @@ let functionArray = {
 		// 定时器版本；
 
 		let door = true; // 开始可执行；
-		return function() {
+		return function () {
 			if (door) {
 				door = false; //进入判断条件后就改变状态，避免下次触发还能够进入
 				settimeout(() => {
@@ -413,7 +413,7 @@ let functionArray = {
 		var foo = 'global.foo';
 		var obj = {
 			foo: 'obj.foo',
-			method: function() {
+			method: function () {
 				return this.foo;
 			}
 		};
@@ -450,12 +450,12 @@ let functionArray = {
 		class RangIterator {
 
 			constructor(start, stop) {
-					this.value = start;
-					this.stop = stop;
-				}
-				[Symbol.iterator]() {
-					return this;
-				}
+				this.value = start;
+				this.stop = stop;
+			}
+			[Symbol.iterator]() {
+				return this;
+			}
 			next() {
 				var value = this.value;
 				if (value < this.stop) {
@@ -484,9 +484,9 @@ let functionArray = {
 		// for of 遍历得到的是键值，for in 得到的是键名
 		let obj = '23457';
 		// [...obj]其实就是内部实现了一个symbol.iterator
-		obj[Symbol.iterator] = function() {
+		obj[Symbol.iterator] = function () {
 			return {
-				next: function() {
+				next: function () {
 					if (this._first) {
 						this._first = false;
 						console.log("借助此属性我们可以修改这些数据的返回值--比较对对象的proxy和reflect")
@@ -520,7 +520,20 @@ let functionArray = {
 		console.log(hw.next()) // {value:"world",done:false}
 		console.log(hw.next()) // {value:"ending",done:true}
 		console.log(hw.next()) // {value:"undefined",done:true}
+		function* g() {
+			try {
+				yield 346465;
+			} catch (e) {
+				console.log(e);
 
+			}
+		}
+		var i = g();
+		i.next();
+		i.throw(new Error('出错了！'));
+	},
+	promise(){
+		
 	}
 }
 
