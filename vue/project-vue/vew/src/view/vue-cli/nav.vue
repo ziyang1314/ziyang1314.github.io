@@ -2,12 +2,9 @@
 <template>
 <div class="page-box">
     <div class="card-page">
-        <li class="card-item" @click="navigate('water')">水纹</li>
+        <li class="card-item" @click="navigate('browerList')">browerList</li>
         <li class="card-item" @click="navigate('shadow')">阴影</li>
         <li class="card-item" @click="navigate(' ')">卡片</li>
-        <li class="card-item" @click="navigate(' ')">渐变</li>
-        <li class="card-item" @click="navigate(' ')">旋转</li>
-        <li class="card-item" @click="navigate(' ')">过渡</li>
     </div>
     <back-up-page></back-up-page>
 </div>

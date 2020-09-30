@@ -4,7 +4,7 @@ import 'babel-polyfill' // vuetify 相关，为了支持veutify支持ie11和safa
 import Vue from 'vue';
 import router from './router/index'; // 引入路由；
 import './router/Permission'; // 引入路由守卫
-
+import './components/common/Global';//全局注册组件
 import store from './store/index.js';
 // 1.样式重置 normalize 比 reset 要更好一些；安装其需要对应安装css-loader和style-loader；
 import 'normalize.css';

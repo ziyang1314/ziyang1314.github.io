@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = ({ file }) => {
   // 兼容有赞的vantui库
-  const designWidth = file.dirname.includes(path.join('node_modules', 'vant')) ? 750 :375; 
+  const designWidth = file.dirname.includes(path.join('node_modules', 'vant')) ? 375 : 750;
   return {
     plugins: {
       autoprefixer: {}, // 用来给不同的浏览器自动添加相应前缀，如-webkit-，-moz-等等
@@ -26,3 +26,6 @@ module.exports = ({ file }) => {
   }
 
 }
+
+
+

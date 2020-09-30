@@ -1,6 +1,5 @@
 // 主题色更改
-import variables from '@/style/elementui-variables.scss';
-console.log(variables);
+import variables from '@/style/elementui-variables.scss'; 
 const settings = {
 	state: {
 		theme: variables.theme,

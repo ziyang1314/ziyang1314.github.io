@@ -3,8 +3,7 @@ import Router from 'vue-router';
 Vue.use(Router); //router 挂在到vue实例 
 // 开发环境开启懒加载比较耗时，所以选择开发环境不使用懒加载，生产环境使用懒加载的方式；
 
-const _import = require('./_import_' + process.env.NODE_ENV)
-console.log(process.env.NODE_ENV);
+const _import = require('./_import_' + process.env.NODE_ENV) 
 //1. 引入路由组件，定义路由规则   
 export const constantRouterMap = [{
 		path: '/login',
@@ -45,6 +44,21 @@ export const constantRouterMap = [{
 			path: "water",
 			name: "water",
 			component: _import("animation/water"),
+		}]
+	},
+	{
+		path: "/vue-cli",
+		name: "vueCli",
+		component: _import("vue-cli/index"),
+		redirect:'/vue-cli/nav',
+		children: [{
+			path: "nav",
+			name: "vueCliNav",
+			component: _import("vue-cli/nav"),
+		},{
+			path: "water",
+			name: "browerList",
+			component: _import("vue-cli/BrowerList"),
 		}]
 	}
 ]

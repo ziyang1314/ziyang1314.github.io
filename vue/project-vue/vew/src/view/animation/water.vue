@@ -1,26 +1,22 @@
 <template>
-  <div class="box">
-    <img
-      src="../../assets/timg1.jpg"
-      alt="水波图片"
-      srcset=""
-      id="waterImage"
-    />
-    <!-- <div id="btn">按钮</div> -->
-  </div>
+<div class="page-box">
+    <img src="../../assets/OIP.jpg" alt="水波图片" srcset="" id="waterImage" />
+    <back-up-page> </back-up-page>
+</div>
 </template>
 
 <script>
-  //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
-  //例如：import 《组件名称》 from '《组件路径》';
-  import { rippleEffect } from "../../utils/animation/water";
-  console.log(rippleEffect);
-  export default {
+//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
+//例如：import 《组件名称》 from '《组件路径》';
+import {
+    rippleEffect
+} from "../../utils/animation/water";
+export default {
     //import引入的组件需要注入到对象中才能使用
     components: {},
     data() {
-      //这里存放数据
-      return {};
+        //这里存放数据
+        return {};
     },
     //监听属性 类似于data概念
     computed: {},
@@ -30,22 +26,23 @@
     methods: {},
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {
- 
 
     },
-    mounted(){ 
-      rippleEffect(document.getElementById("waterImage"));
-    //   rippleEffect(document.getElementById("btn"));
+    mounted() {
+        rippleEffect(document.getElementById("waterImage"));
+        //   rippleEffect(document.getElementById("btn"));
     }
-  };
+};
 </script>
+
 <style lang="scss" scoped>
-  .box {
+.page-box {
     img {
-      width: 100vw;
-      height: auto;
+        width: 100vw;
+        height: auto;
     }
-    #btn{
+
+    #btn {
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -53,5 +50,5 @@
         justify-content: center;
         background: cornflowerblue;
     }
-  }
+}
 </style>

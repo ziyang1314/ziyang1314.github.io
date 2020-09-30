@@ -1,1 +1,71 @@
 @import './variable.scss';
+
+// 全局样式设置；
+// 内容区域box的padding：24px；
+
+.page-box{
+    width:100vw; 
+}
+
+// global-title 用于全局内的标题的样式设置
+
+/**
+ 功能项：一级标题
+*/
+
+@mixin common-structure{
+    width: 100%;
+
+}
+
+@mixin title-common{
+    margin: 20px 0;
+    padding-left: 15px;
+    font-size: 36px;
+    height: 42px;
+    line-height: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+@mixin cotent-common{
+    width: 100%;
+    height: auto;
+    font-size: 28px;
+    border-radius: 20px 0 20px 0; 
+    padding: 15px;
+    letter-spacing: 2px;
+    color: rgba(153, 153, 153, 1);
+    background: white;
+    box-shadow: 1px 1px 30px whitesmoke;
+}
+
+.global-title1{
+    @include title-common;
+    border-left: 4px solid #11a983; 
+}
+
+
+.global-content1{
+  @include cotent-common;
+}
+
+
+.global-title2{
+    @include title-common;
+    border-left: 4px solid #E6A23C; 
+}
+
+.global-content2{
+    @include cotent-common;
+  }
+  
+  
+  .global-title3{
+      @include title-common;
+      border-left: 4px solid #67C23A; 
+  }
+  .global-content3{
+    @include cotent-common;
+  }

@@ -1,11 +1,9 @@
 import router from './index';
 router.beforeEach(async (to, from, next) => {
 	let token = localStorage.getItem('token123');
-	if (token) { 
-		console.log("5678");
+	if (token) {  
 		next();
-	} else {
-		console.log("huibu")
+	} else { 
 		if (to.path === '/login') {
 			next();
 		} else {
@@ -32,5 +30,5 @@ router.beforeEach(async (to, from, next) => {
 	// }
 })
 router.afterEach(() => {
-	console.log('全局路由守卫', "路由离开");
+	// console.log('全局路由守卫', "路由离开");
 });
