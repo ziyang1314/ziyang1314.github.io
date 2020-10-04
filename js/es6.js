@@ -533,9 +533,56 @@ let functionArray = {
 		i.throw(new Error('出错了！'));
 	},
 	promise(){
+		// promise的出现是为了解决，回调地狱而产生的，通过链式调用链式调用来实现；
+		// async 是对generator中 *的替代，await 是对yeild的替代，作用是完全类似的；
+		function timeout(ms) {
+		  return new Promise((resolve) => {
+		    setTimeout(resolve, ms);
+			console.log("xianzhixing")
+		  });
+		}
 		
+		async function asyncPrint(value, ms) {
+		  await timeout(ms);
+		  console.log(value)
+		}
+		
+		asyncPrint('hello world', 50);
+	},
+	andclass(){
+		// class 构造函数和方法，new和继承（super（）这里是在继承者的构造函数中的，目的是绑定this，将this执行当前的继承者）；
+		function mix(...mixins) {
+		  class Mix {}
+		
+		  for (let mixin of mixins) {
+		    copyProperties(Mix, mixin);
+		    copyProperties(Mix.prototype, mixin.prototype);
+		  }
+		
+		  return Mix;
+		}
+		
+		function copyProperties(target, source) { 
+		  for (let key of Reflect.ownKeys(source)) {
+		    if ( key !== "constructor"
+		      && key !== "prototype"
+		      && key !== "name"
+		    ) {
+		      let desc = Object.getOwnPropertyDescriptor(source, key);
+		      Object.defineProperty(target, key, desc);
+		    }
+		  }
+		}
+		let Loggable = {
+			time:"上面的方法定义了将几个对象合并成为一个类的过程"
+		} 
+		class DistributedEdit extends mix(Loggable) {
+		  // ...
+		  
+		}
+		console.log(DistributedEdit)
 	}
 	
 }
 
-functionArray.generator();
+functionArray.andclass();
