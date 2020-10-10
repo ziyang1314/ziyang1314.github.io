@@ -56,9 +56,17 @@ export const constantRouterMap = [{
 			name: "vueCliNav",
 			component: _import("vue-cli/nav"),
 		},{
-			path: "water",
+			path: "/vue-cli/BrowerList",
 			name: "browerList",
 			component: _import("vue-cli/BrowerList"),
+		},{
+			path: "/vue-cli/HtmlAndAssets",
+			name: "HtmlAndAssets",
+			component: _import("vue-cli/HtmlAndAssets"),
+		},{
+			path: "/vue-cli/AboutCss",
+			name: "AboutCss",
+			component: _import("vue-cli/AboutCss"),
 		}]
 	}
 ]

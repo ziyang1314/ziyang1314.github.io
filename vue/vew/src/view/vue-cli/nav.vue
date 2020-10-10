@@ -2,9 +2,9 @@
 <template>
 <div class="page-box">
     <div class="card-page">
-        <li class="card-item" @click="navigate('browerList')">browerList</li>
-        <li class="card-item" @click="navigate('shadow')">阴影</li>
-        <li class="card-item" @click="navigate(' ')">卡片</li>
+        <li class="card-item" @click="navigate('browerList')">浏览器兼容性</li>
+        <li class="card-item" @click="navigate('HtmlAndAssets')">html和静态资源</li>
+        <li class="card-item" @click="navigate('AboutCss')">css相关</li>
     </div>
     <back-up-page></back-up-page>
 </div>
@@ -44,16 +44,17 @@ export default {
         justify-content: space-around;
         flex-wrap: wrap;
 
-        .card-item {
-            width: 26vw;
+        .card-item { 
             height: 16.068vw;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 15px 0;
+			padding: 0 15px;
             background: white;
             border-radius: 5px 0 5px 0;
             box-shadow: 1px 1px 20px whitesmoke;
+			font-family: garamond;
         }
     }
 }

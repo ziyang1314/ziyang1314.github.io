@@ -581,6 +581,15 @@ let functionArray = {
 		  
 		}
 		console.log(DistributedEdit)
+	},
+	ZSQ(){
+		// decorator 装饰器  主要用来修改类的行为，在编译阶段就已经执行了；
+		// 修饰类的叫类装饰器，修饰类的内容的方法叫方法修饰器；
+	},
+	module(){
+		// commonjs module.exports require  值拷贝
+		// export || export default      import {} 和无括号 引用 ES6模块不会缓存运行结果，而是动态地去被加载的模块取值，并且变量总是绑定其所在的模块。
+		// as 导出或者导入的时候的重命名；
 	}
 	
 }

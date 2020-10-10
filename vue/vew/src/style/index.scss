@@ -61,11 +61,19 @@
     @include cotent-common;
   }
   
-  
   .global-title3{
       @include title-common;
       border-left: 4px solid #67C23A; 
   }
+  
   .global-content3{
+    @include cotent-common;
+  }
+  
+  .global-title4{
+      @include title-common;
+      border-left: 4px solid #FF4500; 
+  }
+  .global-content4{
     @include cotent-common;
   }
