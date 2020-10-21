@@ -68,7 +68,22 @@ export const constantRouterMap = [{
 			name: "AboutCss",
 			component: _import("vue-cli/AboutCss"),
 		}]
-	}
+	},
+	{
+		path: "/skill",
+		name: "skill",
+		component: _import("skill/index"),
+		redirect:'/skill/nav',
+		children: [{
+			path: "nav",
+			name: "nav",
+			component: _import("skill/nav"),
+		},{
+			path: "draggable",
+			name: "draggable",
+			component: _import("skill/draggable"),
+		}]
+	},
 ]
 //2. 创建路由实例
 let router = new Router({
