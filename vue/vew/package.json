@@ -16,8 +16,10 @@
     "normalize.css": "^8.0.1",
     "style-loader": "^1.2.1",
     "vue": "^2.6.11",
+    "vue-baberrage": "^3.2.4",
     "vue-print-nb": "^1.5.0",
     "vue-router": "^3.4.3",
+    "vue-video-player": "^5.0.2",
     "vuedraggable": "^2.24.2",
     "vuetify": "^2.2.11",
     "vuex": "^3.5.1"

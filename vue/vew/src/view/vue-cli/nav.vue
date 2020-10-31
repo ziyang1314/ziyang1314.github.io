@@ -5,6 +5,7 @@
         <li class="card-item" @click="navigate('browerList')">浏览器兼容性</li>
         <li class="card-item" @click="navigate('HtmlAndAssets')">html和静态资源</li>
         <li class="card-item" @click="navigate('AboutCss')">css相关</li>
+        <li class="card-item" @click="navigate('Live')">视频直播</li>
     </div>
     <back-up-page></back-up-page>
 </div>

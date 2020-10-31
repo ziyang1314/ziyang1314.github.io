@@ -67,6 +67,10 @@ export const constantRouterMap = [{
 			path: "/vue-cli/AboutCss",
 			name: "AboutCss",
 			component: _import("vue-cli/AboutCss"),
+		},{
+			path: "/vue-cli/Live",
+			name: "Live",
+			component: _import("vue-cli/Live"),
 		}]
 	},
 	{
