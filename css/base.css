@@ -1,0 +1,38 @@
+.content {
+  width: 96vw;
+  height: auto;
+  box-shadow: 0 1px 10px whitesmoke;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+}
+.content .item {
+  width: 10vw;
+  height: 10vw;
+  box-shadow: 0 1px 5px wheat;
+  margin-right: 35px;
+  padding: 25px;
+  border: 20px dashed #000;
+  text-align: center;
+  color: rebeccapurple;
+  text-shadow: 0 1px 2px rosybrown;
+}
+.content .item-1 {
+  background-image: url("https://tse1-mm.cn.bing.net/th?id=OIP.bLx51CquIR2c5rp7BN1GjwHaLI&w=120&h=160&c=8&rs=1&qlt=90&pid=3.1&rm=2");
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+.content .item-2 {
+  background-image: url("https://tse1-mm.cn.bing.net/th?id=OIP.bLx51CquIR2c5rp7BN1GjwHaLI&w=120&h=160&c=8&rs=1&qlt=90&pid=3.1&rm=2");
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+.content .item-3 {
+  background-image: url("https://tse1-mm.cn.bing.net/th?id=OIP.bLx51CquIR2c5rp7BN1GjwHaLI&w=120&h=160&c=8&rs=1&qlt=90&pid=3.1&rm=2");
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+}
+
+/*# sourceMappingURL=base.css.map */
