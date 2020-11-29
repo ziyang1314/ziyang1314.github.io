@@ -1,0 +1,20 @@
+{
+  "name": "zhu",
+  "version": "1.0.0",
+  "description": "first node",
+  "main": "\t",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make start",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "'first",
+    "node'"
+  ],
+  "author": "zhu",
+  "license": "ISC"
+}
