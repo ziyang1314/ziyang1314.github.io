@@ -42,6 +42,7 @@
       ref="myChart"
       style="width: 95vw;height: 50vh;margin: 5vh 2.5vw 0px;"
     ></div>
+    <back-up-page></back-up-page>
   </div>
 </template>
 
@@ -105,6 +106,7 @@ export default {
         ],
       },
       option1: {
+        color: ["#00FF00", "#0000FF", "#8B00FF", "#FF7F00", "#FFFF00"],
         tooltip: {
           trigger: "axis",
         },
@@ -131,26 +133,32 @@ export default {
           {
             name: "股价",
             type: "line",
+            smooth: true,
             data: [120, 132, 101, 134],
+            lineStyle: {},
           },
           {
             name: "买价",
             type: "line",
+            smooth: true,
             data: [220, 182, 191, 234],
           },
           {
             name: "仓位",
             type: "line",
+            smooth: true,
             data: [150, 232, 201, 154],
           },
           {
             name: "均价",
             type: "line",
+            smooth: true,
             data: [320, 332, 301, 334],
           },
           {
             name: "收益率",
             type: "line",
+            smooth: true,
             data: [380, 270, 501, 734],
           },
         ],
@@ -158,14 +166,14 @@ export default {
       theme: "dark", // light dark 两种类型的；
       // 数据：
       priceForm: {
-        value1: 0,
-        value2: 0,
-        value3: 0,
+        value1: 0.6,
+        value2: 1.2,
+        value3: 1.8,
       },
       cangForm: {
-        value1: 0,
-        value2: 0,
-        value3: 0,
+        value1: 4,
+        value2: 2,
+        value3: 1,
       },
       // 股价变化
       price: [
@@ -318,7 +326,7 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
     this.theme = "macarons";
-    // this.initEcharts();
+    this.createEchartsData();
   },
 };
 </script>
@@ -333,7 +341,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 50;
+    z-index: 0;
     width: 100vw;
     height: 100%;
     padding: 0 3.333333vw 150px;

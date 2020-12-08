@@ -27,13 +27,13 @@ let functionArray = {
 	objectProperty() {
 		// 面向对象是对面向过程的抽象，比较：https://www.cnblogs.com/nanqiang/p/9934063.html
 		// 原型链：每个对象都有一个原型，_proto_，即使是new的新对象，对象以其原型为模板，从原型继承方法和属性，原型也可以有自己的原型，因此我们使用一个对象方法或者属性的时候就会，
-		//        如果找不到就会在该对象的原型上找，如果原型还有原型，那么就会一直找下去，这就想一个链条一样，找不到机会报undefined,只有函数才有prototype，类似vue。我们可以再起
+		//        如果找不到就会在该对象的原型上找，如果原型还有原型，那么就会一直找下去，这就想一个链条一样，找不到就会报undefined,只有函数才有prototype，类似vue。我们可以在其
 		//        上面添加方法，在vue中直接进行使用；
 		// 学习到继承；
 	},
 	// 声明---变量声明相关
 	statement() {
-		//   六种声明变量的方法；let、const、var、import、class、function(要知道function也是一种类var声明也是存在变量提升的，f例子)
+		// 六种声明变量的方法；let、const、var、import、class、function(要知道function也是一种类var声明也是存在变量提升的，f例子)
 		// let 声明类似var ，但是没有变量提升，且是在花括号内有效，即其声明的是一个局部作用于内的变量；同时具有绑定块级作用域的特点，外界声明的同名变量，在会计作用于
 		// 同时声明，但是被使用的情况，块级作用域的有效，不受外界影响，但是因为let没有变量提升，所以没声明就使用会报reference error
 		// const 一般声明常量，常量的key全大写，若是object类型的，和var，let声明的也类似，可以修改其object中属性，但是不能整体替换，const声明后的地址是不能够
@@ -195,7 +195,7 @@ let functionArray = {
 		console.log(Object(this)) //输出的是当前this的属性；
 		function isObject(value) {
 			return Object(value) === value;
-		}
+		} 
 		Object.defineProperty(Object.prototype, '_proto_', {
 			get() {
 				let _thisObj = Object(this);
@@ -594,4 +594,4 @@ let functionArray = {
 	
 }
 
-functionArray.andclass();
+functionArray.executionOrder();
