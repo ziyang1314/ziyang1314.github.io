@@ -107,6 +107,12 @@ export const constantRouterMap = [
         name: "echarts",
         component: _import("skill/echarts"),
       },
+      {
+        path: "uniapp",
+        name: "uniapp",
+        component: _import("skill/uniapp"),
+      },
+      
     ],
   },
 ];
