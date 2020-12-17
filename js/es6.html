@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <canvas>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .flex1 {
+        display: flex;
+        flex-wrap: wrap;
 
-    </canvas>
-</body>
-<script type="text/javascript">
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d'); // 获得绘图区域，即绘图环境
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+        margin: 0;
+        padding: 0;
+        padding: 5px;
+      }
 
-// 生成小球的个数
-function random(min,max) {
-  return Math.floor(Math.random()*(max-min)) + min;
-}
+      .flex1 li {
+        flex: 1;
+        min-width: 30%;
+        text-align: center;
+        padding: 5px;
+      }
+      ul:after {
+        content: "";
+        flex: auto;
+      }
+      .flex1 li div {
+        background-color: aqua;
+      }
+      .flex1 li:nth-child(1) div {
+        background-color: red;
+      }
+      .flex1 li:nth-child(3) div {
+        background-color: grey;
+      }
+      li {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <canvas>
+    </canvas> -->
+    <ul class="flex1">
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+      <li><div>1</div></li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+    // let canvas = document.querySelector('canvas');
+    // let ctx = canvas.getContext('2d'); // 获得绘图区域，即绘图环境
+    // let width = canvas.width = window.innerWidth;
+    // let height = canvas.height = window.innerHeight;
 
-// 设置随机颜色值
-function randomColor() {
-  return 'rgb(' +
-         random(0, 255) + ', ' +
-         random(0, 255) + ', ' +
-         random(0, 255) + ')';
-}
-</script>
+    // // 生成小球的个数
+    // function random(min,max) {
+    //   return Math.floor(Math.random()*(max-min)) + min;
+    // }
+
+    // // 设置随机颜色值
+    // function randomColor() {
+    //   return 'rgb(' +
+    //          random(0, 255) + ', ' +
+    //          random(0, 255) + ', ' +
+    //          random(0, 255) + ')';
+    // }
+  </script>
 </html>
